@@ -45,6 +45,14 @@ class App extends Component {
     // console.log('componentDidMount / saiu')
   };
 
+  componentDidUpdate() {
+    // console.log('componentDidUpdate / entrou')
+    const urlArr = this.state.dogURLs.split('/');
+    const breed = urlArr[4];
+    localStorage.setItem(`${breed}`, this.state.dogURLs);
+    // console.log('componentDidUpdate / saiu')
+  }
+
   render() {
     // console.log('render / entrou')
     return (
