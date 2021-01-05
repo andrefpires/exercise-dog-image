@@ -50,6 +50,7 @@ class App extends Component {
     const urlArr = this.state.dogURLs.split('/');
     const breed = urlArr[4];
     localStorage.setItem(`${breed}`, this.state.dogURLs);
+    alert(breed);
     // console.log('componentDidUpdate / saiu')
   }
 
