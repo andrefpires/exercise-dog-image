@@ -5,6 +5,7 @@ import './App.css';
 
 class App extends Component {
   constructor(props){
+    // console.log('constructor / entrou')
     super(props);
     this.state = {
       dogURLs: null,
@@ -12,9 +13,12 @@ class App extends Component {
     };
 
     this.passDog = this.passDog.bind(this);
+    this.fetchAPI = this.fetchAPI.bind(this);
+    // console.log('constructor / saiu')
   }
 
   async fetchAPI() {
+    // console.log('fetchAPI / entrou')
     const requestReturn = await fetch('https://dog.ceo/api/breeds/image/random');
     const requestObject = await requestReturn.json();
   
@@ -22,21 +26,27 @@ class App extends Component {
       dogURLs: requestObject.message,
       loading: false,
     });
+    // console.log('fetchAPI / saiu')
   }
 
   passDog() {
+    // console.log('passDog / entrou')
     this.setState({
       loading: true,
-    })
+    });
 
     this.fetchAPI();
+    // console.log('passDog / saiu')
   }
 
   componentDidMount(){
+    // console.log('componentDidMount / entrou')
     this.fetchAPI();
+    // console.log('componentDidMount / saiu')
   };
 
   render() {
+    // console.log('render / entrou')
     return (
       <div className="App">
         <header>
